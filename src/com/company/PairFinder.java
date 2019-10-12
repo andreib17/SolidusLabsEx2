@@ -2,7 +2,8 @@ package com.company;
 
 import javafx.util.Pair;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 class PairFinder {
@@ -49,9 +50,9 @@ class PairFinder {
      */
     private void checkIfClosestExists(Integer closest, List<Pair<String, Integer>> itemsList,
                                       int firstClosestIndex, int secondClosestIndex) {
-        if(closest.equals(-1)) {
+        if (closest.equals(-1)) {
             System.out.println("Not possible");
-        }else {
+        } else {
             System.out.println(itemsList.get(firstClosestIndex) + ", " + itemsList.get(secondClosestIndex));
         }
     }
