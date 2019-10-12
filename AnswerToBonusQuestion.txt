@@ -1,0 +1,28 @@
+for three items it is possible to implement a similar algorithm with O(n^2) complexity, for each element starting with the smallest,
+the next item in the list will be equivalent to the first index from the algorithm for 2 items, the last index will be exactly
+as the last index from the algorithm for 2 items:
+
+        Integer closest = -1;
+        for(int i = 0; i < itemsList.size(); ++i){
+            int firstClosestIndex = 0, secondClosestIndex = 0, firstIndex = i + 1, lastIndex = itemsList.size() - 1;
+            int firstClosestIndex = 0, secondClosestIndex = 0, thirdClosestIndex = 0;
+            while (firstIndex < lastIndex) {
+
+                Integer sum = itemsList.get(i).getValue() + itemsList.get(firstIndex).getValue() + itemsList.get(lastIndex).getValue();
+                int comparissonResult = sum.compareTo(giftCardBalance);
+                if (comparissonResult == 0) {
+                    System.out.println(itemsList.get(i) + ", " + itemsList.get(firstIndex) + ", " + itemsList.get(lastIndex));
+                    return;
+                } else if (comparissonResult > 0) {
+                    --lastIndex;
+                } else {
+                    if (sum.compareTo(closest) > 0) {
+                        closest = sum;
+                        firstClosestIndex = i;
+                        secondClosestIndex = firstIndex;
+                        thirdClosestIndex = lastIndex;
+                    }
+                    ++firstIndex;
+                }
+            }
+        }
